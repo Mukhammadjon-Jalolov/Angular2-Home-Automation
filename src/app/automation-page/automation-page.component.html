@@ -1,0 +1,33 @@
+<p>
+  automation-page works!
+</p>
+
+	<!-- Place for dropdown menu-->
+	<br>
+  {{selecteddevice}} is {{selectedaction}}(s) <br><br>
+	<select [(ngModel)]="selecteddevice" (change)="devicesel()">
+			<option value="{{device.Name}}" *ngFor="let device of devices" >{{device.Name}}</option>
+	</select>
+	
+	<select [(ngModel)]="selectedaction" >
+			<option value="{{set}}" *ngFor="let set of Sets" >{{set}}</option>
+	</select>
+  
+  <input type="time" [(ngModel)]="settime" placeholder="name"/>
+  
+  <button (click)="automate()"> Set </button>
+  
+  <br>
+  <button (click)="addaction()"> Add action </button>
+  
+  <li *ngFor="let action of miniactions">
+  
+	<app-heroes [devices]="devices" [action]="action" (doDelete)="deleteOne($event)" (doSave)="saveOne($event)">
+
+	</app-heroes>
+	
+  </li>
+	
+	
+	
+	

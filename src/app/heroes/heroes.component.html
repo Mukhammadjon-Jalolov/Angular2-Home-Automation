@@ -1,0 +1,13 @@
+
+	<select [(ngModel)]="selecteddevice" (change)="devicesel()">
+			<option value="{{device.Name}}" *ngFor="let device of devices" >{{device.Name}}</option>
+	</select>
+	
+	<select [(ngModel)]="selectedaction" >
+			<option value="{{set}}" *ngFor="let set of Sets" >{{set}}</option>
+	</select>
+	
+	<button (click)="sendDelete(action.key)"> Delete </button>
+	<button (click)="sendSave(selecteddevice, selectedaction)"> Save </button>
+	
+	
